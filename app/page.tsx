@@ -16,6 +16,8 @@ export default function Home() {
     try {
       // Generate content using our service with mock toggle
       const content = await generateWebinarContent(input);
+      console.log("content");
+      console.log(content);
 
       // Create presentation from the content
       // const newPresentation = createPresentation(webinarTitle, content);

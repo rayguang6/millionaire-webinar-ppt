@@ -6,42 +6,13 @@ import { Presentation } from '../types/presentation';
 import { SlideGenerator } from '../utils/slideGenerator';
 import { SlideType, SlideVariants } from '../types/slideType';
 import '../slides'; // Import to ensure slides are registered
+import { defaultSlides } from '../lib/constants/defaultPresentations';
+import { defaultBrandGuide } from '../lib/constants/defaultBrandGuide';
 
 // Sample presentation data
 const defaultPresentation: Presentation = {
-  slides: [
-      {
-        id: '1',
-        type: SlideType.TITLE,
-        variant: SlideVariants.Title.DEFAULT,
-        content: {
-          title: 'AI PowerPoint Generator',
-          subtitle: 'Create beautiful presentations in seconds',
-          // presenter: 'Demo User',
-        },
-        order: 0,
-      },
-      {
-        id: '2',
-        type: SlideType.IMAGE,
-        variant: SlideVariants.Image.DEFAULT,
-        content: {
-          title: 'Minimalist Design',
-          imageUrl: '/images/placeholder.png',
-          imageStyle: {
-            objectFit: 'cover',
-            opacity: 0.9
-          }
-        },
-        order: 1,
-      },
-    // Add more slides as needed
-  ],
-  brandSettings: {
-    primaryColor: '#ff8b47',
-    secondaryColor: '#ffffff',
-    fontFamily: 'Arial',
-  },
+  slides: defaultSlides,
+  brandSettings: defaultBrandGuide,
 };
 
 export default function PresentationPage() {

@@ -3,37 +3,109 @@ import { SlideType, SlideVariants } from '@/app/types/slideType';
 
 export const defaultSlides: SlideInstance[] = [
   {
-    id: 'title-1',
+    id: 'centered',
     type: SlideType.TITLE,
-    variant: SlideVariants.Title.DEFAULT,
+    variant: SlideVariants.Title.CENTERED,
     content: {
-      title: 'Welcome to the Webinar',
-      subtitle: 'Your Path to Success'
+      title: 'AI PowerPoint Generator - CENTERED',
+      subtitle: 'Create beautiful presentations in seconds',
+      // presenter: 'Demo User',
     },
     order: 0,
   },
   {
-    id: 'bullet-1',
-    type: SlideType.BULLET,
-    variant: SlideVariants.Bullet.DEFAULT,
+    id: '1',
+    type: SlideType.TITLE,
+    variant: SlideVariants.Title.DEFAULT,
     content: {
-      title: 'Key Points',
-      bullets: [
-        'First key point',
-        'Second key point',
-        'Third key point'
-      ]
+      title: 'AI PowerPoint Generator DEFAULT',
+      subtitle: 'Create beautiful presentations in seconds',
+      // presenter: 'Demo User',
+    },
+    order: 0,
+  },
+  {
+    id: 'IMAGE',
+    type: SlideType.IMAGE,
+    variant: SlideVariants.Image.DEFAULT,
+    content: {
+      title: 'IMAGE SLIDES - DEFAULT',
+      imageUrl: '/images/placeholder.png',
+      imageStyle: {
+        objectFit: 'cover',
+        opacity: 0.9
+      }
     },
     order: 1,
   },
   {
-    id: 'image-1',
+    id: '2',
     type: SlideType.IMAGE,
-    variant: SlideVariants.Image.DEFAULT,
+    variant: SlideVariants.Image.LEFT,
     content: {
-      title: 'Visual Overview',
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg/1200px-Port_and_lighthouse_overnight_storm_with_lightning_in_Port-la-Nouvelle.jpg',
+      title: 'Minimalist Design - LEFT',
+      imageUrl: '/images/placeholder.png',
+      imageStyle: {
+        objectFit: 'cover',
+        opacity: 0.9
+      }
     },
-    order: 2,
-  }
+    order: 1,
+  },
+  {
+    id: '2',
+    type: SlideType.IMAGE,
+    variant: SlideVariants.Image.RIGHT,
+    content: {
+      title: 'Minimalist Design - RIGHT',
+      imageUrl: '/images/placeholder.png',
+      imageStyle: {
+        objectFit: 'cover',
+        opacity: 0.9
+      }
+    },  
+    order: 1,
+  },
+  {
+    id: '2',
+    type: SlideType.IMAGE,
+    variant: SlideVariants.Image.BACKGROUND,
+    content: {
+      title: 'Minimalist Design - BACKGROUND',
+      imageUrl: '/images/placeholder.png',
+      imageStyle: {
+        objectFit: 'cover',
+        opacity: 0.9
+      }
+    },
+    order: 1,
+  },
+  {
+    id: '2',
+    type: SlideType.IMAGE,
+    variant: SlideVariants.Image.FULL,
+    content: {
+      title: 'Minimalist Design - FULL',
+      imageUrl: '/images/placeholder.png',
+      imageStyle: {
+        objectFit: 'cover',
+        opacity: 0.9
+      }
+    },  
+    order: 1,
+  },
+  {
+    id: '2',
+    type: SlideType.BULLET,
+    variant: SlideVariants.Bullet.HORIZONTAL,
+    content: {
+      title: 'Minimalist Design - BULLET',
+      bullets: [
+        'Bullet 1',
+        'Bullet 2',
+        'Bullet 3'
+      ]
+    },  
+    order: 1,
+  },
 ]; 

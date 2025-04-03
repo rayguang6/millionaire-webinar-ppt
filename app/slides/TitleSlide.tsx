@@ -13,9 +13,9 @@ const DefaultLayout: React.FC<SlideContent> = ({ title, subtitle, presenter }) =
   return (
     <SlideWrapper>
       <div className="h-full flex flex-col justify-center p-16">
-        <h1 className="text-5xl font-bold mb-6" style={{ color: brandGuide.primaryColor }}>{title}</h1>
-        {subtitle && <h2 className="text-3xl mb-8" style={{ color: brandGuide.secondaryColor }}>{subtitle}</h2>}
-        {presenter && <p className="text-xl text-gray-600 mt-auto">{presenter}</p>}
+        <h1 className="font-bold mb-6" style={{ color: brandGuide.primaryColor , fontFamily: brandGuide.headingFontFamily, fontSize: brandGuide.h1Size }}>{title}</h1>
+        {subtitle && <h2 className="mb-8" style={{ color: brandGuide.textColor , fontFamily: brandGuide.headingFontFamily, fontSize: brandGuide.h2Size }}>{subtitle}</h2>}
+        {presenter && <p className="mt-auto" style={{ color: brandGuide.textColor , fontFamily: brandGuide.fontFamily, fontSize: brandGuide.fontSizeSmall }}>{presenter}</p>}
       </div>
     </SlideWrapper>
   );
@@ -28,9 +28,9 @@ const CenteredLayout: React.FC<SlideContent> = ({ title, subtitle, presenter }) 
   return (
     <SlideWrapper>
       <div className="h-full flex flex-col items-center justify-center p-16 text-center">
-        <h1 className="text-6xl font-bold mb-8" style={{ color: brandGuide.primaryColor }}>{title}</h1>
-        {subtitle && <h2 className="text-3xl mb-10" style={{ color: brandGuide.secondaryColor }}>{subtitle}</h2>}
-        {presenter && <p className="text-xl text-gray-600 mt-auto text-center w-full" style={{ color: brandGuide.secondaryColor }}>{presenter}</p>}
+        <h1 className="text-6xl font-bold mb-8" style={{ color: brandGuide.primaryColor , fontFamily: brandGuide.headingFontFamily, fontSize: brandGuide.h1Size }}>{title}</h1>
+        {subtitle && <h2 className="text-3xl mb-10" style={{ color: brandGuide.secondaryColor , fontFamily: brandGuide.headingFontFamily, fontSize: brandGuide.h2Size }}>{subtitle}</h2>}
+        {presenter && <p className="text-xl text-gray-600 mt-auto text-center w-full" style={{ color: brandGuide.secondaryColor , fontFamily: brandGuide.fontFamily, fontSize: brandGuide.fontSizeSmall }}>{presenter}</p>}
       </div>
     </SlideWrapper>
   );
@@ -46,10 +46,10 @@ const renderDefaultPPTX = async (content: SlideContent, slide: any) => {
     y: '40%',
     w: '80%',
     h: '10%',
-    fontSize: 44,
+    fontSize: brandGuide.h1Size.replace('px', ''),
     bold: true,
     color: brandGuide.primaryColor.replace('#', ''),
-    fontFace: brandGuide.fontFamily,
+    fontFace: brandGuide.headingFontFamily,
     align: 'left',
   });
 
@@ -75,7 +75,7 @@ const renderDefaultPPTX = async (content: SlideContent, slide: any) => {
       w: '80%',
       h: '5%',
       fontSize: 18,
-      color: brandGuide.secondaryColor.replace('#', ''),
+      color: brandGuide.textColor.replace('#', ''),
       fontFace: brandGuide.fontFamily,
       align: 'left',
     });
@@ -92,7 +92,7 @@ const renderCenteredPPTX = async (content: SlideContent, slide: any) => {
     y: '40%',
     w: '80%',
     h: '10%',
-    fontSize: 44,
+    fontSize: brandGuide.h1Size.replace('px', ''),
     bold: true,
     color: brandGuide.primaryColor.replace('#', ''),
     fontFace: brandGuide.fontFamily,
@@ -107,7 +107,7 @@ const renderCenteredPPTX = async (content: SlideContent, slide: any) => {
       w: '80%',
       h: '8%',
       fontSize: 32,
-      color: brandGuide.secondaryColor.replace('#', ''),
+      color: brandGuide.textColor.replace('#', ''),
       fontFace: brandGuide.fontFamily,
       align: 'center',
     });

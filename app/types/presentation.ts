@@ -21,9 +21,24 @@ export interface WebinarContent {
 export interface BrandSettings {
     primaryColor: string;
     secondaryColor: string;
-    fontFamily: string;
-    logoUrl?: string;
+    accentColor: string;
     backgroundColor: string;
+
+    headingColor: string;
+    textColor: string;
+    subtextColor: string;
+
+    fontFamily: string;
+    headingFontFamily: string;
+
+    fontSizeBase: string;
+    fontSizeSmall: string;
+    fontSizeLarge: string;
+    
+    h1Size: string;
+    h2Size: string;
+    h3Size: string;
+    h4Size: string;
 }
   
 

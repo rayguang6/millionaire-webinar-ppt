@@ -13,7 +13,6 @@ export enum SlideType {
     export enum Title {
       DEFAULT = 'default',
       CENTERED = 'centered',
-      WITH_SUBTITLE = 'with-subtitle',
     }
     
     export enum Bullet {
