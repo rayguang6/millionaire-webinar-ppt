@@ -10,22 +10,36 @@ import '../slides'; // Import to ensure slides are registered
 // Sample presentation data
 const defaultPresentation: Presentation = {
   slides: [
-    {
-      id: '1',
-      type: SlideType.TITLE,
-      variant: SlideVariants.Title.CENTERED,
-      content: {
-        title: 'AI PowerPoint Generator',
-        subtitle: 'Create beautiful presentations in seconds',
-        // presenter: 'Demo User',
+      {
+        id: '1',
+        type: SlideType.TITLE,
+        variant: SlideVariants.Title.DEFAULT,
+        content: {
+          title: 'AI PowerPoint Generator',
+          subtitle: 'Create beautiful presentations in seconds',
+          // presenter: 'Demo User',
+        },
+        order: 0,
       },
-      order: 0,
-    },
+      {
+        id: '2',
+        type: SlideType.IMAGE,
+        variant: SlideVariants.Image.DEFAULT,
+        content: {
+          title: 'Minimalist Design',
+          imageUrl: '/images/placeholder.png',
+          imageStyle: {
+            objectFit: 'cover',
+            opacity: 0.9
+          }
+        },
+        order: 1,
+      },
     // Add more slides as needed
   ],
   brandSettings: {
-    primaryColor: '#3366CC',
-    secondaryColor: '#FF9900',
+    primaryColor: '#ff8b47',
+    secondaryColor: '#ffffff',
     fontFamily: 'Arial',
   },
 };

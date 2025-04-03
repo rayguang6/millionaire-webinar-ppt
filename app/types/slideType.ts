@@ -24,11 +24,25 @@ export enum SlideType {
       BOX = 'box',
     }
     
+    /**
+     * Image slide variants
+     * @enum {string}
+     * @property {string} DEFAULT - Image with title above
+     * @property {string} FULL - Full screen image with optional overlay title
+     * @property {string} LEFT - Image on left with content on right
+     * @property {string} RIGHT - Content on left with image on right
+     * @property {string} BACKGROUND - Image as background with content overlay
+     */
     export enum Image {
+      /** Image with title above */
       DEFAULT = 'default',
+      /** Full screen image with optional overlay title */
       FULL = 'full',
+      /** Image on left with content on right */
       LEFT = 'left',
+      /** Content on left with image on right */
       RIGHT = 'right',
+      /** Image as background with content overlay */
       BACKGROUND = 'background',
     }
     
@@ -52,7 +66,10 @@ export enum SlideType {
     }
   }
   
-  // Type mapping to ensure each slide type only uses its appropriate variants
+  /**
+   * Type mapping to ensure each slide type only uses its appropriate variants
+   * This provides type safety when selecting variants for different slide types
+   */
   export type SlideVariantMap = {
     [SlideType.TITLE]: SlideVariants.Title;
     [SlideType.BULLET]: SlideVariants.Bullet;
@@ -62,5 +79,8 @@ export enum SlideType {
     [SlideType.COMPARISON]: SlideVariants.Comparison;
   };
   
-  // Helper type to get the right variant enum for a slide type
+  /**
+   * Helper type to get the right variant enum for a slide type
+   * @template T The slide type to get variants for
+   */
   export type VariantFor<T extends SlideType> = SlideVariantMap[T];

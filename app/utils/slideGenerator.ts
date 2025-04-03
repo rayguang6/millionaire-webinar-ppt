@@ -32,7 +32,7 @@ export class SlideGenerator {
       title: 'MASTER_SLIDE',
       background: { color: 'FFFFFF' },
       objects: [
-        { line: { x: 0, y: 5.56, w: 10, h: 0, line: { color: brandSettings.primaryColor, width: 3 } } },
+        // { line: { x: 0, y: 5.56, w: 10, h: 0, line: { color: brandSettings.primaryColor, width: 3 } } },
       ]
     });
     

@@ -1,29 +1,55 @@
 // contexts/BrandContext.tsx
-import React, { createContext, useContext, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react';
 import { BrandSettings } from '../types/presentation';
+import { getBrandGuide, setBrandGuide } from '../utils/brandStore';
+import { defaultBrandGuide } from '../lib/constants/defaultBrandGuide';
 
-// Default brand settings
-const defaultBrandSettings: BrandSettings = {
-  primaryColor: '#3366CC',
-  secondaryColor: '#FF9900',
-  fontFamily: 'Arial',
-};
+interface BrandContextType {
+  brandGuide: BrandSettings;
+  updateBrandGuide: (newGuide: Partial<BrandSettings>) => void;
+}
 
-// Create context
-const BrandContext = createContext<BrandSettings>(defaultBrandSettings);
+// Create context with default values
+const BrandContext = createContext<BrandContextType>({
+  brandGuide: defaultBrandGuide,
+  updateBrandGuide: () => {},
+});
 
 // Provider component
 interface BrandProviderProps {
-  settings: BrandSettings;
+  initialGuide?: Partial<BrandSettings>;
   children: ReactNode;
 }
 
 export const BrandProvider: React.FC<BrandProviderProps> = ({ 
-  settings, 
+  initialGuide = {}, 
   children 
 }) => {
+  // Merge initial settings with defaults
+  const [brandGuide, setBrandGuideState] = useState<BrandSettings>({
+    ...defaultBrandGuide,
+    ...initialGuide
+  });
+
+  // Function to update settings
+  const updateBrandGuide = (newGuide: Partial<BrandSettings>) => {
+    setBrandGuideState(prev => {
+      const updated = { ...prev, ...newGuide };
+      // Also update the global store when context changes
+      setBrandGuide(updated);
+      return updated;
+    });
+  };
+
+  // Sync initialGuide with global store on mount and when it changes
+  useEffect(() => {
+    const mergedGuide = { ...defaultBrandGuide, ...initialGuide };
+    setBrandGuideState(mergedGuide);
+    setBrandGuide(mergedGuide);
+  }, [initialGuide]);
+
   return (
-    <BrandContext.Provider value={settings}>
+    <BrandContext.Provider value={{ brandGuide, updateBrandGuide }}>
       {children}
     </BrandContext.Provider>
   );

@@ -23,6 +23,7 @@ export interface BrandSettings {
     secondaryColor: string;
     fontFamily: string;
     logoUrl?: string;
+    backgroundColor: string;
 }
   
 
